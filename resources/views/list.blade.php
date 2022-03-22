@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>This is List Page</h1>   
+<h1 class="d-flex justify-content-center">This is List Page</h1>   
 
 @if(Session()->has('status'))
 
@@ -14,10 +14,10 @@
           </div>
     </div>
 
-
+  
 @endif
-<div class="container">
-    <table class="table table-striped table-hover table-responsive">
+<div class="container ">
+    <table class="table table-striped table-hover table-responsive d-flex justify-content-center">
         <tr>
            
             <td>ID</td>

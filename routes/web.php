@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\RestoController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RestoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
 
 Route::get('/resto' , [RestoController::class, "index"]);
 
@@ -34,3 +39,5 @@ Route::get("/edit/{id}" , [RestoController::class ,"edit"]);
 
 Route::post("/editRecord/{id}" , [RestoController::class, "edit_record"]) ;
 
+
+require __DIR__.'/auth.php';
