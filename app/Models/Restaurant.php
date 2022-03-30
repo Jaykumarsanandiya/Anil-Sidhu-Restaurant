@@ -9,4 +9,5 @@ class Restaurant extends Model
 {
     use HasFactory;
     public $timestamps =false;
+    protected $fillable = ["image_path"];
 }

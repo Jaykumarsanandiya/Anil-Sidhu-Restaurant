@@ -15,13 +15,14 @@ use App\Http\Controllers\RestoController;
 
 Route::get('/', function () {
     return view('welcome');
+    // return redirect("/login");
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
+// Route::get("/login" , [RestoController::class , ""])
 
 Route::get('/resto' , [RestoController::class, "index"]);
 
@@ -39,5 +40,9 @@ Route::get("/edit/{id}" , [RestoController::class ,"edit"]);
 
 Route::post("/editRecord/{id}" , [RestoController::class, "edit_record"]) ;
 
+Route::view("/loginOur","login");
 
+Route::post("/session/login", [RestoController::class,'sessionLogin']);
+
+Route::get("/download/{id}" ,  [RestoController::class, "download"]);
 require __DIR__.'/auth.php';
